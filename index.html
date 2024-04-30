@@ -10,18 +10,6 @@
   </head>
   <body>
     <section class="time-table-wrapper">
-      <form class="time-table-input-box">
-        <div class="arrived-time-box">
-          <label>Arrived Time</label>
-          <input class="arrived-time" required type="number" />
-        </div>
-        <div class="running-time-box">
-          <label>Running Time</label>
-          <input class="running-time" required type="number" />
-        </div>
-        <button class="addBtn">+</button>
-      </form>
-
       <table class="time-table">
         <thead>
           <tr>
@@ -31,7 +19,15 @@
         </thead>
         <tbody class="tableBody"></tbody>
       </table>
-
+      <form class="time-table-input-box">
+        <div class="arrived-time-box">
+          <input class="arrived-time" required type="number" />
+        </div>
+        <div class="running-time-box">
+          <input class="running-time" required type="number" />
+        </div>
+        <button class="addBtn">+</button>
+      </form>
       <button class="submitBtn">
         <a href="./src/chooseScheduling.html">submit</a>
       </button>
