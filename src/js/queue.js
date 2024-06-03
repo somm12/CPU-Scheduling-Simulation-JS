@@ -48,4 +48,4 @@ class Queue {
     return this.head;
   }
 }
-export { Node, Queue };
+export default Queue;
