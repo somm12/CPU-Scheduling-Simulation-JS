@@ -75,7 +75,8 @@ const rr = (queue, timeSlice) => {
       now += Math.min(process.runningTime, timeSlice);
       if (process.runningTime > timeSlice) {
         process.runningTime -= timeSlice;
-        stack.push(process); // 다음에 이어서 다시 실행되어야함.
+        stack.push(process); // 다음에 이어서 다시 실행되어야함. 다음에 가능한 것들 중 가장 뒤로 추가 되어야하므로, stack에 임시저장.
+        // possible.enqueue(process.index, process.arriveTime,process)
       } else num -= 1; // 이번에 서비스가 종료가 됨.
       //   now += Math.min(process.runningTime, timeSlice);
     } else now += 1; // 실행 할 수 있는 프로세스가 없다면 시간 + 1.
