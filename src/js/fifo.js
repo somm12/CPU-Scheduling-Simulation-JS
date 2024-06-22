@@ -2,7 +2,7 @@ import Queue from "./queue.js";
 import fifo from "./fifoLogic.js";
 const TIMETABLE = "TIMETABLE";
 const fifoTable = document.querySelector(".fifo-table");
-const rowList = fifoTable.getElementsByTagName("tr");
+
 let timetable = localStorage.getItem(TIMETABLE);
 timetable = JSON.parse(timetable);
 

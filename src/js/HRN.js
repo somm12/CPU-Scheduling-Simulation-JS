@@ -60,7 +60,7 @@ const hrn = (queue) => {
   let now = 0;
   const possible = [];
   const visited = new Set();
-  console.log(queue);
+
   while (num > 0) {
     for (let i = 0; i < queue.length; i++) {
       if (now >= queue[i][1] && !visited.has(queue[i][0])) {

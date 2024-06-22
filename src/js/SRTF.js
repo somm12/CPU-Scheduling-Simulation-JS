@@ -99,14 +99,13 @@ const srtf = (queue, timeSlice) => {
         process.runningTime -= timeSlice;
         stack.push(process); // 다음에 이어서 다시 실행되어야함.
       } else num -= 1; // 이번에 서비스가 종료가 됨.
-      //   now += Math.min(process.runningTime, timeSlice);
     } else now += 1; // 실행 할 수 있는 프로세스가 없다면 시간 + 1.
   }
 };
 // 1. 도착 순서대로 정렬
 const intialSetting = () => {
   const arr = [];
-  console.log(timetable);
+  timetable;
   for (let tmp of timetable) {
     arr.push([tmp.id, parseInt(tmp.at), parseInt(tmp.rt)]);
   }
@@ -119,7 +118,7 @@ const intialSetting = () => {
   for (const [idx, at, rt] of arr) {
     queue.enqueue(idx, at, rt);
   }
-  console.log(queue);
+
   initialPrinting();
   srtf(queue, 1);
 };

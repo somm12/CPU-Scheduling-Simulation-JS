@@ -1,5 +1,3 @@
-import Queue from "./queue.js";
-
 const TIMETABLE = "TIMETABLE";
 const fifoTable = document.querySelector(".fifo-table");
 const rowList = fifoTable.getElementsByTagName("tr");
@@ -34,7 +32,7 @@ const printWorkingLoad = (start, process) => {
         } else {
           // table 데이터 부분.
           const columnData = document.createElement("td");
-          // columnData.innerText = "1";
+
           rowList[i].appendChild(columnData);
         }
       }
@@ -42,7 +40,7 @@ const printWorkingLoad = (start, process) => {
   }
 
   for (let i = start; i < start + process.runningTime; i++) {
-    // 맨 처음은 모두 프롤세스 이름을 나타내므로 i+1 해야함.
+    // 맨 처음은 모두 프로세스 이름(P0,P1,,등)을 나타내므로 i+1 해야함.
     rowList[process.index].getElementsByTagName("td")[i + 1].innerText = "🍀";
   }
 };

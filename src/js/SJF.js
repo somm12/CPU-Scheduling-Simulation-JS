@@ -23,7 +23,7 @@ const initialPrinting = () => {
 };
 const printWorkingLoad = (start, process) => {
   const lastMaxColumnLength = rowList[0].getElementsByTagName("th").length - 1;
-  if (lastMaxColumnLength < start + process.runningTime - 1) {
+  if (lastMaxColumnLength - 1 < start + process.runningTime - 1) {
     // 부족한 열 추가하기.
 
     for (let i = 0; i < rowList.length; i++) {
@@ -53,13 +53,13 @@ const printWorkingLoad = (start, process) => {
     rowList[process.index].getElementsByTagName("td")[i + 1].innerText = "🍀";
   }
 };
-//2. 큐에 들어온 순서대로 FIFO 방식으로 스케줄링 시작.
+//2. 현재 시점에서 도착한 프로세스들 중 가장 실행시간이 적은 프로세스 선택.
 const sjf = (queue) => {
   let num = queue.length;
   let now = 0;
   const possible = [];
   const visited = new Set();
-  console.log(queue);
+
   while (num > 0) {
     for (let i = 0; i < queue.length; i++) {
       if (now >= queue[i][1] && !visited.has(queue[i][0])) {

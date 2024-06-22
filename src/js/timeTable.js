@@ -16,13 +16,6 @@ addButton.addEventListener("click", (event) => {
 });
 submitButton.addEventListener("click", submitTable);
 
-function submitTable() {
-  // 다음 화면으로 넘어가자.
-  // let table = document.querySelector(".tableBody");
-  // const tableChildren = table.children;
-  // console.log(tableChildren);
-}
-
 function saveTimeTable() {
   localStorage.setItem(TIMETABLE, JSON.stringify(timeTable));
 }
@@ -58,13 +51,12 @@ function editRow(event) {
   }
 
   timeTable.map((process) => {
-    console.log(process, row.id);
+    process, row.id;
     if (process.id == row.id) {
       process.at = arrivedTime;
       process.rt = runningTime;
     }
   });
-  console.log(timeTable);
 
   saveTimeTable();
 }
@@ -72,7 +64,7 @@ function removeRow(event) {
   const row = event.target.parentElement.parentElement;
 
   row.parentNode.removeChild(row);
-  console.log(row);
+
   timeTable = timeTable.filter((process) => process.id !== parseInt(row.id));
   saveTimeTable();
 }

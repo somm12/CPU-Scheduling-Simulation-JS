@@ -16,7 +16,7 @@ const initialPrinting = () => {
   fistRow.innerText = "T";
   timeMarkingRow.appendChild(fistRow);
   fifoTable.appendChild(timeMarkingRow);
-  console.log(len);
+
   for (let i = 0; i < len; i++) {
     const row = document.createElement("tr");
     const firstColumn = document.createElement("td");
@@ -61,38 +61,30 @@ const rr = (info, timeSlice, now) => {
   let num = info.length;
 
   const possible = new Queue(); // 지금 실행 가는 프로세스 담기.
-  //   const stack = [];
+
   const nextLevelQueue = new Queue(); // 다음 레벨에서 다시 실행되어야하는 프로세스 담기.
-  console.log("무엇?");
+
   while (num > 0) {
     while (info.length > 0 && now >= info.head.arriveTime) {
       const tmp = info.dequeue();
       possible.enqueue(tmp.index, tmp.arriveTime, tmp.runningTime);
     }
-    // if (stack.length > 0) {
-    //   const tmp = stack.pop();
-    //   possible.enqueue(tmp.index, tmp.arriveTime, tmp.runningTime);
-    // }
+
     if (possible.length > 0) {
-      print(now, ":현재 시간!!");
-      print(possible, "가능한거.!!!!");
       const process = possible.dequeue();
-      console.log(process, "이번에 할 프로세스.");
 
       printWorkingLoad(now, process, timeSlice);
       now += Math.min(process.runningTime, timeSlice);
       num -= 1;
       if (process.runningTime > timeSlice) {
         process.runningTime -= timeSlice;
+        // 다음 레벨의 큐에서 다시 실행되어야함.
         nextLevelQueue.enqueue(
           process.index,
           process.arriveTime,
           process.runningTime
         );
-        console.log(nextLevelQueue, "다음에 해야할거.");
-        // 다음 레벨의 큐에서 다시 실행되어야함.
       }
-      //   now += Math.min(process.runningTime, timeSlice);
     } else now += 1; // 실행 할 수 있는 프로세스가 없다면 시간 + 1.
   }
   return [nextLevelQueue, now];
@@ -100,7 +92,7 @@ const rr = (info, timeSlice, now) => {
 // 1. 도착 순서대로 정렬
 const intialSetting = () => {
   const arr = [];
-  console.log(timetable);
+
   for (let tmp of timetable) {
     arr.push([tmp.id, parseInt(tmp.at), parseInt(tmp.rt)]);
   }
@@ -113,7 +105,7 @@ const intialSetting = () => {
   for (const [idx, at, rt] of arr) {
     info.enqueue(idx, at, rt);
   }
-  console.log(info);
+  s;
   initialPrinting();
   // 처음엔 timeSlice = 1 인 큐를 사용.
   const [queue2, nowTime2] = rr(info, 1, 0);

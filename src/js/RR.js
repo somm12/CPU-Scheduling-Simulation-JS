@@ -85,7 +85,7 @@ const rr = (queue, timeSlice) => {
 // 1. 도착 순서대로 정렬
 const intialSetting = () => {
   const arr = [];
-  console.log(timetable);
+
   for (let tmp of timetable) {
     arr.push([tmp.id, parseInt(tmp.at), parseInt(tmp.rt)]);
   }
@@ -98,7 +98,7 @@ const intialSetting = () => {
   for (const [idx, at, rt] of arr) {
     queue.enqueue(idx, at, rt);
   }
-  console.log(queue);
+
   initialPrinting();
   rr(queue, 1);
 };
