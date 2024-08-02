@@ -105,7 +105,7 @@ const intialSetting = () => {
   for (const [idx, at, rt] of arr) {
     info.enqueue(idx, at, rt);
   }
-  s;
+
   initialPrinting();
   // 처음엔 timeSlice = 1 인 큐를 사용.
   const [queue2, nowTime2] = rr(info, 1, 0);
