@@ -12,6 +12,10 @@ CPU 스케줄링 기법 직접 구현해보기
 
 ## 4. 화면
 
+<a href="https://somm12.github.io/CPU-Scheduling-Simulation-JS/"> 💻 사용해보기</a>
+<br/>
+<br/>
+
 아래와 같이 프로세스의 도착시간, 수행시간을 입력하면 어떤 타임라인으로 각 프로세스가 실행될지 스케줄링 기법에 따른 결과를 보여줍니다.
 
 ![스크린샷 2024-08-02 오후 3 42 04](https://github.com/user-attachments/assets/d2024076-1a4a-44de-898f-8a8b1575f341)
